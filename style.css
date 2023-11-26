@@ -1,5 +1,5 @@
 body {
-    font-family: 'Blogger Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -11,6 +11,7 @@ body {
 
 h1 {
     text-align: center;
+    font-family: 'Handlee', cursive;
 }
 
 .table {

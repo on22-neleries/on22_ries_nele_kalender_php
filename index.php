@@ -51,6 +51,9 @@ if (!isset($_SESSION['uid'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Kalender</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Roboto+Condensed&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="container mt-4">
@@ -80,6 +83,9 @@ $calendar->fetchAppointmentsFromDatabase($con);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalender</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 
     <script>
     // JavaScript-Funktion, um den Monat zu ändern
