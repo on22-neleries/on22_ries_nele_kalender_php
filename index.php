@@ -32,3 +32,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<div class='error'>Fehler beim Hinzufügen des Termins: " . $database->error . "</div>";
     }
 }
+
+$calendar->setMondayFirst(true);
+
+$calendar->create();
+
+session_start();
+// Überprüfen, ob der Benutzer angemeldet ist
+if (!isset($_SESSION['uid'])) {
+    // Benutzer ist nicht angemeldet, zeige das Anmeldeformular
+    include('login.php');
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kalender</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h1>Anmeldung</h1>
+            <form method="post" action="">
+                <label for="benutzername" class="form-label">Benutzername:</label>
+                <input type="text" name="benutzername" class="form-control" required>
+                <label for="passwort" class="form-label">Passwort:</label>
+                <input type="password" name="passwort" class="form-control" required>
+                <button type="submit" class="btn btn-primary">Anmelden</button>
+            </form>
+        </div>
+    </body>
+    </html>
+    <?php
+    exit();
+}
+
+$calendar->fetchAppointmentsFromDatabase($con);
+?>
