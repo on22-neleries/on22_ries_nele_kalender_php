@@ -177,3 +177,27 @@ class Calendar
         }
         return [];
     }
+
+    public function fetchAppointmentsFromDatabase($con)
+    {
+       $sql = "SELECT * FROM termine WHERE MONTH(termin_datum) = " . $this->getSelectedMonth(). " AND user_id = " . $_SESSION['uid'];
+       $result = $con->query($sql);
+
+      if ($result) {
+       while ($row = $result->fetch_assoc()) {
+           $dayNumber = (int) date('j', strtotime($row['termin_datum']));
+            foreach ($this->weeks as &$week) {
+               foreach ($week as &$day) {
+                    if ($day['currentMonth'] && $day['dayNumber'] == $dayNumber) {
+                       if (!isset($day['appointments'])) {
+                           $day['appointments'] = [];
+                        }
+                        $day['appointments'][] = $row;
+                    }
+                }
+            }
+        }
+     } else {
+        echo "Fehler bei der Datenbankabfrage: " . $con->error;
+     }
+    }
