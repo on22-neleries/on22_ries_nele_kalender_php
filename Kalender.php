@@ -75,3 +75,30 @@ class Calendar
 
     protected $mondayFirst = true;
     protected $weeks = [];
+
+    public function __construct(CurrentDate $currentDate, CalendarDate $calendarDate)
+    {
+        $this->currentDate = $currentDate;
+        $this->calendarDate = clone $calendarDate;
+        $this->calendarDate->modify('first day of this month');
+    }
+
+    public function getCurrentDate()
+    {
+        return $this->currentDate;
+    }
+
+    public function getMonthNumber() {
+        return $this->currentDate->getMonthNumber();
+    }
+
+    public function getSelectedMonth()
+    {
+        return $this->calendarDate->getMonthNumber();
+    }
+
+
+    public function getDayLabels()
+    {
+        return $this->dayLabels;
+    }
