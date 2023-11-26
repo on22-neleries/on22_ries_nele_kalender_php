@@ -37,3 +37,21 @@ class CurrentDate extends DateTimeImmutable
         parent::__construct();
     }
 }
+
+class CalendarDate extends DateTime
+{
+    use DateHelpers;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->modify('first day of this month');
+    }
+
+    public function getMonthStartDayOfWeek()
+    {
+        // Aktualisierte Implementierung für den korrekten Tag der Woche
+        $dayOfWeek = (int) $this->format('N');
+        return ($dayOfWeek === 1) ? 7 : ($dayOfWeek - 1);
+    }
+}
