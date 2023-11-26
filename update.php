@@ -37,3 +37,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <title>Calender</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
+
+    <body>
+        <?php 
+        if(isset($_GET['id'])){
+            session_start();
+            if (!isset($_SESSION['uid'])){
+                header("Location: index.php");
+            }
+            $appointmentData = Calendar::fetchAppointmentById($_GET['id'], $con);
+        }else{
+            die("Keine ID angegeben!");
+        }
+        if (empty($appointmentData))
+            die("Der gesuchte Termin konnte nicht gefunden werden!");
+        ?>
+
+        <h1>Dein Termin</h1>
+        <h2>Name: <?php echo $appointmentData['termin_name'] ?></h2>
+        <h2>Datum: <?php echo $appointmentData['termin_datum'] ?></h2>
+        <h2>Uhrzeit: <?php echo $appointmentData['termin_uhrzeit'] ?></h2>
+
+        <a href="bearbeitung.php?id=<?php echo $_GET['id']; ?>" class="update-btn">Termin bearbeiten</a>
+
+        <a href="delete.php?id=<?php echo $_GET['id']; ?>" class="delete-btn">Termin löschen</a>
+    </body>
+</html>
