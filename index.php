@@ -108,3 +108,23 @@ $calendar->fetchAppointmentsFromDatabase($con);
 
 
 </head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Mein Kalender</h1>
+
+        <!-- Dropdown-Menü für Monate -->
+        <label for="selectedMonth" class="form-label">Monat auswählen:</label>
+        <select name="selectedMonth" id="selectedMonth" class="form-select" onchange="changeMonth(this.value)">
+        <?php
+        $monthLabels = $calendar->getMonthLabels();
+        foreach ($monthLabels as $key => $monthLabel) {
+            $monthNumber = $key + 1;
+            echo "<option value=\"$monthNumber\"";
+            if ($calendar->getSelectedMonth() == $monthNumber) {
+                echo " selected";
+            }
+            echo ">" . $monthLabel . "</option>";
+        }
+        ?>
+        </select>
