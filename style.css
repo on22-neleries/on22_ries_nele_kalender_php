@@ -36,3 +36,72 @@ h1 {
 .text-secondary {
     color: #6c757d;
 }
+
+/* Stil für die Box */
+.date-box {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #add8e6;
+    margin: 20px auto; /* Zentrierung und äußerer Abstand */
+    max-width: 400px; /* Maximale Breite der Box */
+}
+
+/* Stil für das Datum-Eingabefeld */
+.date-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Abstand zwischen den Eingabefeldern */
+}
+
+/* Anpassungen für den "Termin hinzufügen"-Button */
+.date-button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Blogger Sans', sans-serif;
+    margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
+}
+
+
+/* Stil für den Button-Hover-Effekt */
+.date-button:hover {
+    background-color: #0056b3;
+}
+
+.date-box form {
+    display: flex;
+    align-items: center;
+}
+
+.date-box label {
+    margin-right: 10px;
+}
+
+.date-input[name="terminName"],
+.date-input[name="terminDatum"] {
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.date-input[name="terminName"] {
+    width: 150px;
+}
+
+.date-input[name="terminDatum"] {
+    width: auto;
+}
+
+.date-button {
+    margin-left: 20px;
+}
+
+.date-box form .date-input[name="terminUhrzeit"] {
+    width: auto;
+}
