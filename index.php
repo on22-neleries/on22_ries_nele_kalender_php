@@ -128,3 +128,41 @@ $calendar->fetchAppointmentsFromDatabase($con);
         }
         ?>
         </select>
+
+        <!-- Hier ist das Formular von create.php eingefügt -->
+        <?php include('create.php'); ?>
+
+        <table class="table table-bordered mt-4">
+        <thead>
+            <?php foreach ($calendar->getDayLabels() as $dayLabel): ?>
+                <th>
+                    <?php echo $dayLabel; ?>
+                </th>
+            <?php endforeach; ?>
+        </thead>
+        <tbody>
+        <?php foreach ($calendar->getWeeks() as $week): ?>
+            <tr>    
+                <?php foreach ($week as $day): ?>
+                    <td <?php if (!$day['currentMonth']): ?> class="text-secondary" <?php endif; ?>
+                        <span <?php if ($calendar->isCurrentDate($day['dayNumber'])) : ?> class="text-primary" <?php endif; ?>>
+                            <?php echo $day['dayNumber']; ?>
+                        </span>
+                        <?php if (!empty($day['appointments'])) : ?>
+                            <?php foreach($day['appointments'] as $appointment):?>
+                                <br>
+                                <small><a href="./update.php?id=<?php echo $appointment['id']?>"><?php echo $appointment['termin_name']; ?></a></small>
+                            <?php endforeach;?>
+                        <?php endif; ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>   
+    </table>
+    </div>
+
+    
+
+</body>
+</html>
