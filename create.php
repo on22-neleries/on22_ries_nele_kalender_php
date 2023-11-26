@@ -34,14 +34,14 @@ $con->close();
 
 <!-- HTML-Formular für die Eingabe der Termindaten -->
 <form method="post" action="./create.php" class="date-box">
-    <label for="terminName">Terminname:</label>
-    <input type="text" id="terminName" name="terminName" required class="date-input" style="width: 150px;">
+    </br><label for="terminName">Terminname:</label>
+    <input type="text" id="terminName" name="terminName" required class="date-input" style="width: 150px;"></br>
 
-    <br><label for="terminDatum">Datum:</label></br>
-    <input type="date" id="terminDatum" name="terminDatum" required class="date-input" style="width: auto;">
+    <br><label for="terminDatum">Datum:</label>
+    <input type="date" id="terminDatum" name="terminDatum" required class="date-input" style="width: auto;"></br>
 
-    <br><label for="terminUhrzeit">Uhrzeit:</label></br>
-    <input type="time" id="terminUhrzeit" name="terminUhrzeit" required class="date-input" style="width: auto;">
+    <br><label for="terminUhrzeit">Uhrzeit:</label>
+    <input type="time" id="terminUhrzeit" name="terminUhrzeit" required class="date-input" style="width: auto;"></br>
 
-    <input type="submit" value="Termin hinzufügen" class="date-button" style="margin-left: 10px;">
+    <input type="submit" value="Termin hinzufügen" class="date-button">
 </form>
