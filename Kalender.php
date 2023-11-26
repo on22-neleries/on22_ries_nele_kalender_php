@@ -55,3 +55,23 @@ class CalendarDate extends DateTime
         return ($dayOfWeek === 1) ? 7 : ($dayOfWeek - 1);
     }
 }
+
+class Calendar
+{
+
+    use DateHelpers;
+
+    protected $currentDate;
+    protected $calendarDate;
+
+    protected $dayLabels = [
+        'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'
+    ];
+
+    protected $monthLabels = [
+        'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober',
+        'November', 'Dezember'
+    ];
+
+    protected $mondayFirst = true;
+    protected $weeks = [];
