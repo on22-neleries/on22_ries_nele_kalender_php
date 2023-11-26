@@ -16,3 +16,14 @@ if(isset($_GET['id'])){
 if (empty($appointmentData))
     die("Der gesuchte Termin konnte nicht gefunden werden!");
 ?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bearbeiten</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+    </body>
+</html>
