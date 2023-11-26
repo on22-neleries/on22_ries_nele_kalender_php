@@ -106,3 +106,39 @@ h1 {
 .date-box form .date-input[name="terminUhrzeit"] {
     width: auto;
 }
+
+.btn .btn-primary{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Blogger Sans', sans-serif;
+    margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
+}
+
+.update-btn{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Blogger Sans', sans-serif;
+    margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
+}
+
+.delete-btn{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Blogger Sans', sans-serif;
+    margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
+}
