@@ -201,3 +201,53 @@ class Calendar
         echo "Fehler bei der Datenbankabfrage: " . $con->error;
      }
     }
+
+    public function create()
+    {
+        $days = array_fill(0, ($this->getMonthFirstDay() - 1), ['currentMonth' => false, 'dayNumber' => '']);
+
+        //aktuelle Tage
+        for ($x = 1; $x <= $this->calendarDate->getMonthNumberDays(); $x++)
+        {
+            $days[] = ['currentMonth' => true, 'dayNumber' => $x, 'appointment' => ''];
+        }
+
+        $this->weeks = array_chunk($days, 7);
+
+
+        //Letzter Monat
+        $firstWeek = $this->weeks[0];
+        $prevMonth = clone $this->calendarDate;
+        $prevMonth->modify('-1 month');
+        $prevMonthNumDays = $prevMonth->getMonthNumberDays();
+
+        for ($x = 6; $x >= 0; $x--)
+        {
+            if(!$firstWeek[$x]['dayNumber']) {
+                $firstWeek[$x]['dayNumber'] = $prevMonthNumDays;
+                $prevMonthNumDays -= 1;
+            }
+        }
+
+        $this->weeks[0] = $firstWeek;
+
+        //nächster Monat
+        $lastWeek = $this->weeks[count($this->weeks) -1];
+        $nextMonth = clone $this->calendarDate;
+        $nextMonth->modify('+1 month');
+
+        $c = 1;
+        for ($x = 0; $x < 7; $x++) {
+            if (!isset($lastWeek[$x]))
+            {
+                $lastWeek[$x]['currentMonth'] = false;
+                $lastWeek[$x]['dayNumber'] = $c;
+                $c++;
+            }  
+        }
+
+        $this->weeks[count($this->weeks) -1] = $lastWeek;
+
+    }
+    
+}
