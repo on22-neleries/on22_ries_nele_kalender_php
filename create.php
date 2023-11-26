@@ -37,10 +37,10 @@ $con->close();
     <label for="terminName">Terminname:</label>
     <input type="text" id="terminName" name="terminName" required class="date-input" style="width: 150px;">
 
-    <label for="terminDatum">Datum:</label>
+    <br><label for="terminDatum">Datum:</label></br>
     <input type="date" id="terminDatum" name="terminDatum" required class="date-input" style="width: auto;">
 
-    <label for="terminUhrzeit">Uhrzeit:</label>
+    <br><label for="terminUhrzeit">Uhrzeit:</label></br>
     <input type="time" id="terminUhrzeit" name="terminUhrzeit" required class="date-input" style="width: auto;">
 
     <input type="submit" value="Termin hinzufügen" class="date-button" style="margin-left: 10px;">

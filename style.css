@@ -28,6 +28,7 @@ h1 {
 
 .table th {
     background-color: #f2f2f2;
+    font-family: 'Handlee', cursive;
 }
 
 .text-primary {
@@ -44,7 +45,7 @@ h1 {
     padding: 15px;
     background-color: #add8e6;
     margin: 20px auto; /* Zentrierung und äußerer Abstand */
-    max-width: 400px; /* Maximale Breite der Box */
+    max-width: 500px;
 }
 
 /* Stil für das Datum-Eingabefeld */
@@ -65,7 +66,7 @@ h1 {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-    font-family: 'Blogger Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
 }
 
@@ -99,12 +100,10 @@ h1 {
     width: auto;
 }
 
-.date-button {
-    margin-left: 20px;
-}
 
 .date-box form .date-input[name="terminUhrzeit"] {
     width: auto;
+    border: #fff;
 }
 
 .btn .btn-primary{
@@ -115,7 +114,7 @@ h1 {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-    font-family: 'Blogger Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
 }
 
@@ -127,8 +126,9 @@ h1 {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-    font-family: 'Blogger Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
+    text-align: center;
 }
 
 .delete-btn{
@@ -139,6 +139,16 @@ h1 {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-    font-family: 'Blogger Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin-top: 10px; /* Abstand zwischen dem letzten Eingabefeld und dem Button */
+    text-align: center;
+}
+
+.anzeige-box{
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #add8e6;
+    margin: 20px auto; /* Zentrierung und äußerer Abstand */
+    max-width: 400px; /* Maximale Breite der Box */
+    margin-top: 250px;
 }

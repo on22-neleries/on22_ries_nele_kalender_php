@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($appointmentData))
             die("Der gesuchte Termin konnte nicht gefunden werden!");
         ?>
-
+        <div class="anzeige-box">
         <h1>Dein Termin</h1>
         <h2>Name: <?php echo $appointmentData['termin_name'] ?></h2>
         <h2>Datum: <?php echo $appointmentData['termin_datum'] ?></h2>
@@ -64,5 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="bearbeitung.php?id=<?php echo $_GET['id']; ?>" class="update-btn">Termin bearbeiten</a>
 
         <a href="delete.php?id=<?php echo $_GET['id']; ?>" class="delete-btn">Termin löschen</a>
+        </div>
+
+        
     </body>
 </html>
