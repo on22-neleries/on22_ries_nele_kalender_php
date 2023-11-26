@@ -27,3 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Fehler beim Hinzufügen des Termins: " . $con->error;
     }
 }
+
+// Verbindung zur Datenbank schließen (optional, da PHP die Verbindung am Ende des Skripts automatisch schließt)
+$con->close();
+?>
