@@ -71,3 +71,40 @@ if (!isset($_SESSION['uid'])) {
 
 $calendar->fetchAppointmentsFromDatabase($con);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+    // JavaScript-Funktion, um den Monat zu ändern
+    function changeMonth(selectedMonth) {
+        console.log("Selected Month: " + selectedMonth);
+        window.location.href = 'index.php?selectedMonth=' + selectedMonth;
+    }
+
+    // Initialisiere das Dropdown-Menü mit dem ausgewählten Monat
+    document.addEventListener("DOMContentLoaded", function () {
+        let selectedMonth = "<?php echo $calendar->getSelectedMonth(); ?>";
+        document.getElementById("selectedMonth").value = selectedMonth;
+    });
+	
+    // JavaScript-Funktion, um Termininformationen anzuzeigen
+    function showAppointmentInfo(day, appointmentArray) {
+         //Überprüfe, ob der Tag Termine hat
+        if (appointmentArray) {
+			for (appointment of appointmentArray) {
+				//alert('Termin am ' + day + ': ' + appointment.termin_name + ' - Weitere Infos: ' + appointment.weitere_infos);
+				//console.log("Termin am:"+day + ":" + appointment.termin_name + "Weitere Infos: " + appointment.weitere_infos)
+			}
+        }
+    }
+    </script>
+
+
+</head>
