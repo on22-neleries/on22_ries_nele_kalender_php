@@ -31,3 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Verbindung zur Datenbank schließen (optional, da PHP die Verbindung am Ende des Skripts automatisch schließt)
 $con->close();
 ?>
+
+<!-- HTML-Formular für die Eingabe der Termindaten -->
+<form method="post" action="./create.php" class="date-box">
+    <label for="terminName">Terminname:</label>
+    <input type="text" id="terminName" name="terminName" required class="date-input" style="width: 150px;">
+
+    <label for="terminDatum">Datum:</label>
+    <input type="date" id="terminDatum" name="terminDatum" required class="date-input" style="width: auto;">
+
+    <label for="terminUhrzeit">Uhrzeit:</label>
+    <input type="time" id="terminUhrzeit" name="terminUhrzeit" required class="date-input" style="width: auto;">
+
+    <input type="submit" value="Termin hinzufügen" class="date-button" style="margin-left: 10px;">
+</form>
