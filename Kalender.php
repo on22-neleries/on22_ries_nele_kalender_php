@@ -129,3 +129,36 @@ class Calendar
     {
         return $this->calendarDate->getMonthName();
     }
+
+    protected function getMonthFirstDay()
+    {
+        $day = $this->calendarDate->getMonthStartDayOfWeek();
+
+        if ($this->mondayFirst)
+        {
+            if ($day === 7)
+            {
+                return 1;
+            }
+
+            if ($day < 7)
+            {
+                return ($day + 1);
+            }
+        }
+
+        return $day;
+    }
+
+    public function isCurrentDate($dayNumber)
+    {
+        if (
+            $this->calendarDate->getYear() === $this->currentDate->getYear() &&
+            $this->calendarDate->getMonthNumber() === $this->currentDate->getMonthNumber() &&
+            $this->currentDate->getCurrentDayNumber() === $dayNumber
+        ) {
+            return true;
+        }
+
+        return false;
+    }
