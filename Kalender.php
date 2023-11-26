@@ -162,3 +162,18 @@ class Calendar
 
         return false;
     }
+
+    public function getWeeks()
+    {
+        return $this->weeks;
+    }
+
+    public static function fetchAppointmentById($id, $con){
+        $sql = "SELECT termin_name, termin_datum, termin_uhrzeit FROM termine WHERE id = ".$id. " AND user_id = ". $_SESSION['uid'];
+        $result = $con->query($sql);
+        if ($result) {
+            $data = $result->fetch_assoc();
+            return $data;
+        }
+        return [];
+    }
