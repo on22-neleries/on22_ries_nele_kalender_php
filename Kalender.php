@@ -102,3 +102,30 @@ class Calendar
     {
         return $this->dayLabels;
     }
+
+    public function getMonthLabels()
+    {
+        return $this->monthLabels;
+    }
+
+    public function setMondayFirst($bool)
+    {
+        $this->mondayFirst = $bool;
+        
+        if(!$this->mondayFirst)
+        {
+            array_push($this->dayLabels, array_shift($this->dayLabels));
+        }
+    }
+
+    public function setMonth($monthNumber)
+    {
+        $this->calendarDate = clone $this->calendarDate;
+        $this->calendarDate->setDate($this->calendarDate->getYear(), $monthNumber, 1);
+        $this->calendarDate->modify('first day of this month');
+    }
+
+    public function getCalendarMonth()
+    {
+        return $this->calendarDate->getMonthName();
+    }
